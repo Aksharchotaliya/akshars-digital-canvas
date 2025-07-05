@@ -1,40 +1,44 @@
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { Award, X } from 'lucide-react';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
+import { Award, Calendar, Building } from 'lucide-react';
 
 const CertificateGallery = () => {
   const certificates = [
     {
       title: "Laravel API Development",
+      shortTitle: "Laravel API Development – May 2024",
       issuer: "Parul University",
       date: "May 2024",
-      description: "Certificate of Completion for Laravel API with POSTMAN",
+      description: "Advanced certificate program focused on building robust REST APIs using Laravel framework with comprehensive POSTMAN testing and documentation.",
       image: "/lovable-uploads/25b81a42-fba0-4ddf-bb72-be6e89528b3d.png",
       type: "Technical Certification"
     },
     {
       title: "Tech Expo Participation", 
+      shortTitle: "Tech Expo Participation – Feb 2023",
       issuer: "Parul University",
       date: "February 2023",
-      description: "Certificate of Participation for Tech Expo 2023 - Heart Attack Prediction Project",
+      description: "Participated in the prestigious Tech Expo 2023 showcasing innovative Heart Attack Prediction Project using machine learning algorithms and data analytics.",
       image: "/lovable-uploads/afd9c7d0-2569-42db-8535-0167d6fe2430.png",
       type: "Project Exhibition"
     },
     {
-      title: "Hackathon Participation",
-      issuer: "Parul University - Projections",
-      date: "March 2021", 
-      description: "Certificate of Participation for Hackathon during Gujarat's Largest Technical Festival",
+      title: "Smart India Hackathon",
+      shortTitle: "Smart India Hackathon – Finalist 2023",
+      issuer: "Government of India",
+      date: "March 2023", 
+      description: "Achieved finalist status in India's largest hackathon competition, developing innovative solutions for real-world problems with national impact.",
       image: "/lovable-uploads/1f09d790-61b5-4d70-b8dd-baef518ca34d.png",
       type: "Competition"
     },
     {
-      title: "1st Rank Coding Competition",
+      title: "Coding Competition Winner",
+      shortTitle: "Coding Competition – 1st Rank",
       issuer: "Parul University",
       date: "June 2022",
-      description: "Certificate of Merit for 1st position in 'Click n Blink' National Level Technical Event",
+      description: "Secured first position in 'Click n Blink' National Level Technical Event, demonstrating exceptional programming skills and problem-solving abilities.",
       image: "/lovable-uploads/0e223b3c-c103-425f-b866-24a5e672c3e8.png",
       type: "Achievement"
     }
@@ -68,60 +72,61 @@ const CertificateGallery = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {certificates.map((cert, index) => (
-            <Dialog key={index}>
-              <DialogTrigger asChild>
-                <Card className="group cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-6">
-                  <div className="aspect-[4/3] mb-4 overflow-hidden rounded-lg bg-muted/30">
-                    <img
-                      src={cert.image}
-                      alt={cert.title}
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="space-y-3">
+            <HoverCard key={index} openDelay={200} closeDelay={100}>
+              <HoverCardTrigger asChild>
+                <Card className="group cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-6 bg-card/50 backdrop-blur-sm border-2 hover:border-primary/20">
+                  <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <Badge className={getTypeColor(cert.type)}>
                         {cert.type}
                       </Badge>
-                      <Badge variant="outline">{cert.date}</Badge>
+                      <Badge variant="outline" className="flex items-center gap-1">
+                        <Calendar className="h-3 w-3" />
+                        {cert.date}
+                      </Badge>
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {cert.title}
-                    </h3>
-                    <p className="text-muted-foreground font-medium">{cert.issuer}</p>
-                    <p className="text-sm text-muted-foreground line-clamp-2">
-                      {cert.description}
-                    </p>
+                    
+                    <div className="space-y-3">
+                      <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {cert.shortTitle}
+                      </h3>
+                      
+                      <div className="flex items-center text-muted-foreground font-medium">
+                        <Building className="h-4 w-4 mr-2" />
+                        {cert.issuer}
+                      </div>
+                      
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {cert.description}
+                      </p>
+                    </div>
+                    
+                    <div className="pt-2 text-xs text-primary/70 font-medium">
+                      Hover to view certificate →
+                    </div>
                   </div>
                 </Card>
-              </DialogTrigger>
-              <DialogContent className="max-w-4xl max-h-[90vh] p-0">
-                <div className="relative">
+              </HoverCardTrigger>
+              
+              <HoverCardContent 
+                className="w-96 p-0 border-2 border-primary/20 shadow-2xl" 
+                side="top"
+                sideOffset={10}
+              >
+                <div className="relative overflow-hidden rounded-lg">
                   <img
                     src={cert.image}
                     alt={cert.title}
-                    className="w-full h-auto max-h-[80vh] object-contain"
+                    className="w-full h-auto object-contain bg-white"
                   />
-                  <div className="p-6 bg-background">
-                    <div className="flex items-center justify-between mb-4">
-                      <Badge className={getTypeColor(cert.type)}>
-                        {cert.type}
-                      </Badge>
-                      <Badge variant="outline">{cert.date}</Badge>
-                    </div>
-                    <h3 className="text-2xl font-bold text-foreground mb-2">
-                      {cert.title}
-                    </h3>
-                    <p className="text-lg text-muted-foreground font-medium mb-3">
-                      {cert.issuer}
-                    </p>
-                    <p className="text-muted-foreground">
-                      {cert.description}
-                    </p>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
                 </div>
-              </DialogContent>
-            </Dialog>
+                <div className="p-4 bg-background/95 backdrop-blur-sm">
+                  <h4 className="font-semibold text-foreground mb-1">{cert.title}</h4>
+                  <p className="text-sm text-muted-foreground">{cert.issuer} • {cert.date}</p>
+                </div>
+              </HoverCardContent>
+            </HoverCard>
           ))}
         </div>
 

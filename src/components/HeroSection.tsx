@@ -54,14 +54,14 @@ const HeroSection = () => {
           {/* Profile Image */}
           <div className="order-1 lg:order-2 flex justify-center">
             <div className="relative">
-              <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-xl bg-white p-4">
+              <div className="w-96 h-96 lg:w-[450px] lg:h-[450px] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(147,51,234,0.3)] bg-transparent p-4">
                 <img
                   src={heroImage}
                   alt="Akshar Chotaliya"
-                  className="w-full h-full object-cover rounded-full"
+                  className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(147,51,234,0.4)]"
                 />
               </div>
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/10 to-transparent"></div>
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-primary/5 to-transparent pointer-events-none"></div>
             </div>
           </div>
         </div>
