@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/profile-hero.jpg';
+const heroImage = "/lovable-uploads/3209711c-5cbf-48f0-8645-b425aec20413.png";
 
 const HeroSection = () => {
   const scrollToSection = (href: string) => {
@@ -54,14 +54,14 @@ const HeroSection = () => {
           {/* Profile Image */}
           <div className="order-1 lg:order-2 flex justify-center">
             <div className="relative">
-              <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
+              <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-xl bg-white p-4">
                 <img
                   src={heroImage}
                   alt="Akshar Chotaliya"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-primary/20 to-transparent"></div>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/10 to-transparent"></div>
             </div>
           </div>
         </div>
