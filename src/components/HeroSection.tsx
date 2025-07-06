@@ -31,23 +31,30 @@ const HeroSection = () => {
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button 
-                size="lg" 
-                onClick={() => scrollToSection('#projects')}
-                className="font-medium"
-              >
-                Explore My Work
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                onClick={() => scrollToSection('#contact')}
-                className="font-medium"
-              >
-                Connect With Me
-              </Button>
+            <div className="group">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button 
+                  size="lg" 
+                  onClick={() => scrollToSection('#projects')}
+                  className="font-medium"
+                >
+                  Explore My Work
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  onClick={() => scrollToSection('#contact')}
+                  className="font-medium"
+                >
+                  Connect With Me
+                </Button>
+              </div>
+              
+              {/* Animated underline */}
+              <div className="mt-6 flex justify-center lg:justify-start">
+                <div className="w-16 h-0.5 bg-primary rounded-full transform scale-x-0 animate-[scale-x-100_0.8s_ease-out_0.5s_forwards] group-hover:scale-x-125 transition-transform duration-300 origin-left lg:origin-left origin-center"></div>
+              </div>
             </div>
           </div>
 
