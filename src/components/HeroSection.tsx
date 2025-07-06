@@ -69,7 +69,7 @@ const HeroSection = () => {
                 />
               </div>
               {/* Green underline */}
-              <div className="w-[420px] lg:w-[500px] h-0.5 mt-4" style={{backgroundColor: '#22c55e'}}></div>
+              <div className="w-[420px] lg:w-[500px] h-0.5" style={{backgroundColor: '#22c55e'}}></div>
             </div>
           </div>
         </div>
