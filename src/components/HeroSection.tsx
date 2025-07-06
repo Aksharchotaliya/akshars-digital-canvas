@@ -60,7 +60,7 @@ const HeroSection = () => {
 
           {/* Profile Image */}
           <div className="order-1 lg:order-2 flex justify-center">
-            <div className="w-96 h-96 lg:w-[450px] lg:h-[450px]">
+            <div className="w-[420px] h-[420px] lg:w-[500px] lg:h-[500px]">
               <img
                 src={heroImage}
                 alt="Akshar Chotaliya"
