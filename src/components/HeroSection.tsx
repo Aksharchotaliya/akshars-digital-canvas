@@ -60,12 +60,16 @@ const HeroSection = () => {
 
           {/* Profile Image */}
           <div className="order-1 lg:order-2 flex justify-center">
-            <div className="w-[420px] h-[420px] lg:w-[500px] lg:h-[500px]">
-              <img
-                src={heroImage}
-                alt="Akshar Chotaliya"
-                className="w-full h-full object-contain"
-              />
+            <div className="flex flex-col items-center">
+              <div className="w-[420px] h-[420px] lg:w-[500px] lg:h-[500px]">
+                <img
+                  src={heroImage}
+                  alt="Akshar Chotaliya"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              {/* Green underline */}
+              <div className="w-[420px] lg:w-[500px] h-0.5 mt-4" style={{backgroundColor: '#22c55e'}}></div>
             </div>
           </div>
         </div>
